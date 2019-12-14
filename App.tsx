@@ -1,19 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
+import HomeScreen from "./src/screens/home.screen";
+import VideoArrangeScreen from "./src/screens/video-arrange.screen";
+import VideoPlayScreen from "./src/screens/video-play.screen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const AppNavigator = createStackNavigator({
+  HomeScreen: {
+    screen: HomeScreen,
   },
+  VideoArrangeScreen: {
+    screen: VideoArrangeScreen,
+  },
+  VideoPlayScreen: {
+    screen: VideoPlayScreen,
+  },
+}, {
+  defaultNavigationOptions: {
+    headerStyle: {
+      elevation: 0,
+        shadowOpacity: 0,
+        borderBottomWidth: 0,
+    }
+  }
 });
+
+
+export default createAppContainer(AppNavigator);
