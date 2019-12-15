@@ -17,7 +17,6 @@ type Prop = {
 export default class VideoArrangeScreen extends React.Component<Prop, any> {
 
   static navigationOptions = (props: { navigation: Navi }): NavigationStackOptions => {
-    console.log('call navigationOptions:', props);
     return {
       title: props.navigation.getParam('title')
     }
